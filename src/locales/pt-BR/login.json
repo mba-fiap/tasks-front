@@ -1,0 +1,15 @@
+{
+  "form": {
+    "email": {
+      "placeholder": "E-mail",
+      "required": "Informe um e-mail!",
+      "invalid": "E-mail inválido!"
+    },
+    "password": {
+      "placeholder": "Senha",
+      "required": "Informe uma senha!"
+    },
+    "submit": "Login",
+    "register": "Cadastrar-se"
+  }
+}

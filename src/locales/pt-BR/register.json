@@ -1,0 +1,25 @@
+{
+  "form": {
+    "name": {
+      "placeholder": "Seu nome",
+      "required": "Informe o nome!"
+    },
+    "email": {
+      "placeholder": "Seu E-mail",
+      "required": "Informe um e-mail!",
+      "invalid": "E-mail inválido!"
+    },
+    "password": {
+      "placeholder": "Sua senha",
+      "required": "Informe uma senha!"
+    },
+    "submit": "Cadastrar-se",
+    "login": "Voltar para o login",
+    "terms": [
+      "Ao criar uma conta, você concorda com os",
+      "Termos de Uso",
+      "e",
+      "Política de Privacidade"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "form": {
+    "name": {
+      "placeholder": "Your name",
+      "required": "Please enter your name!"
+    },
+    "email": {
+      "placeholder": "Your email",
+      "required": "Please enter an email!",
+      "invalid": "Invalid email!"
+    },
+    "password": {
+      "placeholder": "Your password",
+      "required": "Please enter a password!"
+    },
+    "submit": "Sign Up",
+    "login": "Back to login",
+    "terms": [
+      "By creating an account, you agree to the",
+      "Terms of Use",
+      "and",
+      "Privacy Policy"
+    ]
+  }
+}

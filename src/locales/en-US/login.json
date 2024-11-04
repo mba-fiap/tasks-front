@@ -1,0 +1,15 @@
+{
+  "form": {
+    "email": {
+      "placeholder": "Email",
+      "required": "Please enter an email!",
+      "invalid": "Invalid email!"
+    },
+    "password": {
+      "placeholder": "Password",
+      "required": "Please enter a password!"
+    },
+    "submit": "Login",
+    "register": "Sign Up"
+  }
+}
