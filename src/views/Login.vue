@@ -64,10 +64,13 @@
 
 <script lang="ts" setup>
 import { reactive } from 'vue'
+
 import { useI18n } from 'vue-i18n'
+
 import { useRouter } from 'vue-router'
 
 import { validateEmail } from '@/utils/validate-email'
+
 import { UserOutlined, LockOutlined } from '@ant-design/icons-vue'
 
 import type { Rule } from 'ant-design-vue/es/form'

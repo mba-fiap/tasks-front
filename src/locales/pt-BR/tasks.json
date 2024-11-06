@@ -1,0 +1,6 @@
+{
+  "emptyList": {
+    "description": "Você ainda não possui tarefas cadastradas!",
+    "buttonCreate": "Adicionar uma tarefa"
+  }
+}
