@@ -2,5 +2,19 @@
   "emptyList": {
     "description": "Você ainda não possui tarefas cadastradas!",
     "buttonCreate": "Adicionar uma tarefa"
+  },
+  "addTask": {
+    "title": "Adicionar Tarefa",
+    "description": "Cadastre uma nova tarefa para sua lista",
+    "fields": {
+      "title": {
+        "placeholder": "Informe o título da tarefa",
+        "required": "O título da tarefa é obrigatório"
+      }
+    },
+    "footer": {
+      "cancel": "Cancelar",
+      "submit": "Cadastrar"
+    }
   }
 }

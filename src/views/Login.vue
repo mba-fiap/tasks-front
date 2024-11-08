@@ -22,7 +22,7 @@
           <a-form-item name="email" has-feedback>
             <a-input
               v-model:value="formState.email"
-              :placeholder="$t('login.form.email.placeholder')"
+              :placeholder="t('login.form.email.placeholder')"
             >
               <template #prefix>
                 <UserOutlined class="mr-1" />
@@ -33,7 +33,7 @@
           <a-form-item name="password" has-feedback>
             <a-input-password
               v-model:value="formState.password"
-              :placeholder="$t('login.form.password.placeholder')"
+              :placeholder="t('login.form.password.placeholder')"
             >
               <template #prefix>
                 <LockOutlined class="mr-1" />
@@ -43,7 +43,7 @@
 
           <div class="w-full flex flex-col gap-2">
             <a-button type="primary" html-type="submit">
-              {{ $t('login.form.submit') }}
+              {{ t('login.form.submit') }}
             </a-button>
 
             <a-button
@@ -51,7 +51,7 @@
               class="p-0 h-auto"
               @click="handleGoToRegister"
             >
-              {{ $t('login.form.register') }}
+              {{ t('login.form.register') }}
             </a-button>
           </div>
         </a-form>

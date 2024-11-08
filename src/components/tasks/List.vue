@@ -91,13 +91,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useI18n } from 'vue-i18n'
-
 import { CheckOutlined } from '@ant-design/icons-vue'
 
 import PageContainer from '@/components/PageContainer.vue'
-
-const { t } = useI18n()
 </script>
 
 <style lang="scss" module>

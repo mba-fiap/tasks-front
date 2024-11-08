@@ -22,7 +22,7 @@
           <a-form-item name="name" has-feedback>
             <a-input
               v-model:value="formState.name"
-              :placeholder="$t('register.form.name.placeholder')"
+              :placeholder="t('register.form.name.placeholder')"
             >
               <template #prefix>
                 <IdcardOutlined class="mr-1" />
@@ -33,7 +33,7 @@
           <a-form-item name="email" has-feedback>
             <a-input
               v-model:value="formState.email"
-              :placeholder="$t('register.form.email.placeholder')"
+              :placeholder="t('register.form.email.placeholder')"
             >
               <template #prefix>
                 <UserOutlined class="mr-1" />
@@ -44,7 +44,7 @@
           <a-form-item name="password" has-feedback>
             <a-input-password
               v-model:value="formState.password"
-              :placeholder="$t('register.form.password.placeholder')"
+              :placeholder="t('register.form.password.placeholder')"
             >
               <template #prefix>
                 <LockOutlined class="mr-1" />
@@ -54,7 +54,7 @@
 
           <div class="w-full flex flex-col gap-2">
             <a-button type="primary" html-type="submit">
-              {{ $t('register.form.submit') }}
+              {{ t('register.form.submit') }}
             </a-button>
 
             <a-button
@@ -64,7 +64,7 @@
             >
               <ArrowLeftOutlined />
 
-              {{ $t('register.form.login') }}
+              {{ t('register.form.login') }}
             </a-button>
 
             <div
@@ -72,12 +72,12 @@
             >
               <a-typography-paragraph
                 class="!mb-0"
-                :content="$t('register.form.terms.0')"
+                :content="t('register.form.terms.0')"
               />
 
               <div class="flex justify-center items-center gap-1.5">
                 <a-typography-link
-                  :content="$t('register.form.terms.1')"
+                  :content="t('register.form.terms.1')"
                   href="https://fiap.com.br"
                   target="_blank"
                   underline
@@ -85,11 +85,11 @@
 
                 <a-typography-paragraph
                   class="!mb-0"
-                  :content="$t('register.form.terms.2')"
+                  :content="t('register.form.terms.2')"
                 />
 
                 <a-typography-link
-                  :content="$t('register.form.terms.3')"
+                  :content="t('register.form.terms.3')"
                   href="https://fiap.com.br"
                   target="_blank"
                   underline
