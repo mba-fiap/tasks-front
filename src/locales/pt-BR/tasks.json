@@ -3,6 +3,28 @@
     "description": "Você ainda não possui tarefas cadastradas!",
     "buttonCreate": "Adicionar uma tarefa"
   },
+  "filter": {
+    "title": "Tarefas",
+    "buttonTooltip": "Filtrar tarefas",
+    "addTask": "Adicionar uma tarefa",
+    "modal": {
+      "title": "Filtrar Tarefa",
+      "fields": {
+        "title": {
+          "placeholder": "Pesquise pelo título da tarefa",
+          "required": "O título da tarefa é obrigatório"
+        },
+        "status": {
+          "completed": "Apenas tarefas concluídas",
+          "pending": "Apenas tarefas em aberto"
+        }
+      },
+      "footer": {
+        "cancel": "Cancelar",
+        "submit": "Filtrar"
+      }
+    }
+  },
   "addTask": {
     "title": "Adicionar Tarefa",
     "description": "Cadastre uma nova tarefa para sua lista",

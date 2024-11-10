@@ -12,12 +12,12 @@
           ]"
         />
 
-        <div class="w-full flex flex-col flex-1">
-          <a-typography-title :level="4" class="!mb-0">
+        <div class="w-full flex flex-col flex-1 gap-1">
+          <a-typography-title :level="5" class="!mb-0 !font-normal">
             Dentista
           </a-typography-title>
 
-          <a-typography-paragraph class="!mb-0">
+          <a-typography-paragraph class="!mb-0 text-sm">
             Conclusão em: 14/09/2024
           </a-typography-paragraph>
         </div>
@@ -34,12 +34,12 @@
           ]"
         />
 
-        <div class="w-full flex flex-col flex-1">
-          <a-typography-title :level="4" class="!mb-0">
+        <div class="w-full flex flex-col flex-1 gap-1">
+          <a-typography-title :level="5" class="!mb-0 !font-normal">
             Tarefa 1
           </a-typography-title>
 
-          <a-typography-paragraph class="!mb-0">
+          <a-typography-paragraph class="!mb-0 text-sm">
             Conclusão em: 14/09/2024
           </a-typography-paragraph>
         </div>
@@ -55,12 +55,12 @@
           <CheckOutlined :style="{ fontSize: '14px' }" class="text-white" />
         </div>
 
-        <div class="w-full flex flex-col flex-1">
-          <a-typography-title :level="4" class="!mb-0" delete>
+        <div class="w-full flex flex-col flex-1 gap-1">
+          <a-typography-title :level="5" class="!mb-0 !font-normal" delete>
             Tarefa 2
           </a-typography-title>
 
-          <a-typography-paragraph class="!mb-0" delete>
+          <a-typography-paragraph class="!mb-0 text-sm" delete>
             Concluído em: 18/10/2021
           </a-typography-paragraph>
         </div>
@@ -76,12 +76,12 @@
           <CheckOutlined :style="{ fontSize: '14px' }" class="text-white" />
         </div>
 
-        <div class="w-full flex flex-col flex-1">
-          <a-typography-title :level="4" class="!mb-0" delete>
+        <div class="w-full flex flex-col flex-1 gap-1">
+          <a-typography-title :level="5" class="!mb-0 !font-normal" delete>
             Tarefa 3
           </a-typography-title>
 
-          <a-typography-paragraph class="!mb-0" delete>
+          <a-typography-paragraph class="!mb-0 text-sm" delete>
             Concluído em: 18/10/2021
           </a-typography-paragraph>
         </div>

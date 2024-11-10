@@ -8,7 +8,7 @@
       <a-button
         type="primary"
         class="flex justify-center items-center"
-        @click="handleOpenAddTaskModal"
+        @click="emit('openAddTaskModal')"
       >
         <template #icon>
           <PlusCircleOutlined />
@@ -16,35 +16,18 @@
 
         {{ t('tasks.emptyList.buttonCreate') }}
       </a-button>
-
-      <AddTaskModal
-        :open="addTaskModalOpen"
-        @dismiss="handleCloseAddTaskModal"
-      />
     </div>
   </PageContainer>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-
 import { useI18n } from 'vue-i18n'
 
 import { PlusCircleOutlined } from '@ant-design/icons-vue'
 
 import PageContainer from '@/components/PageContainer.vue'
 
-import AddTaskModal from './AddTaskModal.vue'
+const emit = defineEmits(['openAddTaskModal'])
 
 const { t } = useI18n()
-
-const addTaskModalOpen = ref(false)
-
-const handleOpenAddTaskModal = () => {
-  addTaskModalOpen.value = true
-}
-
-const handleCloseAddTaskModal = () => {
-  addTaskModalOpen.value = false
-}
 </script>

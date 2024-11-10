@@ -155,7 +155,7 @@ const rules: Record<string, Rule[]> = {
 }
 
 const onFinish = (values: any) => {
-  console.log('Success:', values)
+  router.push({ name: RouteNames.TASKS })
 }
 
 const handleGoToLogin = () => {

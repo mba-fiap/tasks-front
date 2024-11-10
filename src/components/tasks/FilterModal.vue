@@ -2,10 +2,10 @@
   <a-modal
     width="350px"
     :open="open"
-    :title="t('tasks.addTask.title')"
-    :ok-text="t('tasks.addTask.footer.submit')"
-    :cancel-text="t('tasks.addTask.footer.cancel')"
-    @ok="handleCreateTask"
+    :title="t('tasks.filter.modal.title')"
+    :ok-text="t('tasks.filter.modal.footer.submit')"
+    :cancel-text="t('tasks.filter.modal.footer.cancel')"
+    @ok="handleFilterTasks"
     @cancel="emit('dismiss')"
   >
     <a-form
@@ -15,21 +15,35 @@
       :model="formState"
       :rules="rules"
     >
-      <a-typography-paragraph :content="t('tasks.addTask.description')" />
-
       <a-form-item name="title" has-feedback>
         <a-input
           v-model:value="formState.title"
-          :placeholder="t('tasks.addTask.fields.title.placeholder')"
+          :placeholder="t('tasks.filter.modal.fields.title.placeholder')"
         />
       </a-form-item>
 
-      <div class="w-full rounded-md border border-gray-300">
+      <div class="w-full rounded-md border border-gray-300 mb-4">
         <a-calendar
           v-model:value="formState.date"
           :fullscreen="false"
           :locale="calendarLocale"
           @panelChange="onPanelChange"
+        />
+      </div>
+
+      <div class="w-full flex items-center gap-4 mb-4">
+        <a-switch v-model:checked="formState.status" size="small" />
+
+        <a-typography-paragraph
+          v-if="formState.status"
+          :content="t('tasks.filter.modal.fields.status.completed')"
+          class="!mb-0"
+        />
+
+        <a-typography-paragraph
+          v-else
+          :content="t('tasks.filter.modal.fields.status.pending')"
+          class="!mb-0"
         />
       </div>
     </a-form>
@@ -53,6 +67,7 @@ import type { Rule } from 'ant-design-vue/es/form'
 interface FormState {
   title: string
   date: Dayjs
+  status: 'todo' | 'done'
 }
 
 type SupportedLocales = 'pt-BR' | 'en-US'
@@ -75,19 +90,21 @@ const formRef: Ref<FormInstance | null> = ref(null)
 const formState = reactive<FormState>({
   title: '',
   date: dayjs(),
+  status: 'todo',
 })
 
 const rules: Record<string, Rule[]> = {
   title: [
-    { required: true, message: t('tasks.addTask.fields.title.required') },
+    { required: true, message: t('tasks.filter.modal.fields.title.required') },
   ],
+  status: [{ required: true }],
 }
 
 const onPanelChange = (value: Dayjs, mode: string) => {
   console.log(value, mode)
 }
 
-const handleCreateTask = async () => {
+const handleFilterTasks = async () => {
   if (formRef.value) {
     try {
       await formRef.value.validate()

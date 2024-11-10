@@ -3,6 +3,28 @@
     "description": "You do not have any registered tasks yet.!",
     "buttonCreate": "Add a task"
   },
+  "filter": {
+    "title": "Tasks",
+    "buttonTooltip": "Filter tasks",
+    "addTask": "Add a task",
+    "modal": {
+      "title": "Filter Task",
+      "fields": {
+        "title": {
+          "placeholder": "Search by task title",
+          "required": "Task title is required"
+        },
+        "status": {
+          "completed": "Only completed tasks",
+          "pending": "Open tasks only"
+        }
+      },
+      "footer": {
+        "cancel": "Cancel",
+        "submit": "Filter"
+      }
+    }
+  },
   "addTask": {
     "title": "Add Task",
     "description": "Add a new task to your list",
