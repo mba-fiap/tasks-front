@@ -3,6 +3,12 @@
     width="350px"
     :open="open"
     :title="t('tasks.filter.modal.title')"
+    :ok-button-props="{
+      'data-cy': 'FilterTaskButton',
+    }"
+    :cancel-button-props="{
+      'data-cy': 'CancelTaskButton',
+    }"
     :ok-text="t('tasks.filter.modal.footer.submit')"
     :cancel-text="t('tasks.filter.modal.footer.cancel')"
     @ok="handleFilterTasks"
@@ -18,6 +24,7 @@
       <a-form-item name="title" has-feedback>
         <a-input
           v-model:value="formState.title"
+          data-cy="InputFilterTitle"
           :placeholder="t('tasks.filter.modal.fields.title.placeholder')"
         />
       </a-form-item>
@@ -25,6 +32,7 @@
       <div class="w-full rounded-md border border-gray-300 mb-4">
         <a-calendar
           v-model:value="formState.date"
+          data-cy="AddFilterCalendar"
           :fullscreen="false"
           :locale="calendarLocale"
           @panelChange="onPanelChange"

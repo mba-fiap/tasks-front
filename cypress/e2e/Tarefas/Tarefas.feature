@@ -16,15 +16,15 @@ Scenario: Editar uma tarefa existente
 
     Dado que o usuário tem uma tarefa com o título "Comprar mantimentos"
     E a tarefa tem a descrição "Comprar frutas, verduras e leite"
-    E a tarefa tem a data de vencimento "2024-11-10"
+    E a tarefa tem a data de vencimento "2024-08-10"
     Quando o usuário clica no botão "Editar" da tarefa "Comprar mantimentos"
     E o usuário altera o campo "Título" para "Comprar mantimentos e pão"
     E o usuário altera a descrição para "Comprar frutas, verduras, leite e pão"
-    E o usuário altera a data de vencimento para "2024-11-12"
+    E o usuário altera a data de vencimento para "2024-11-10"
     E o usuário clica no botão "Salvar"
     Então a tarefa deve ser atualizada com o título "Comprar mantimentos e pão"
     E a tarefa deve ter a descrição "Comprar frutas, verduras, leite e pão"
-    E a tarefa deve ter a data de vencimento "2024-11-12"
+    E a tarefa deve ter a data de vencimento "2024-11-10"
 
 
 Scenario: Excluir uma tarefa
@@ -40,9 +40,9 @@ Scenario: Filtrar tarefas por data de vencimento
     Dado que o usuário tem tarefas com as seguintes datas de vencimento:
       | Título                           | Data de Vencimento |
       | Comprar mantimentos              | 2024-11-10         |
-      | Comprar pão                      | 2024-11-12         |
-      | Estudar para a prova             | 2024-11-14         |
-    Quando o usuário aplica o filtro de data com o valor "2024-11-12"
+      | Comprar pão                      | 2024-08-10        |
+      | Estudar para a prova             | 2024-22-10         |
+    Quando o usuário aplica o filtro de data com o valor "2024-08-10"
     Então a lista de tarefas deve exibir apenas a tarefa "Comprar pão"
     E a tarefa "Comprar mantimentos" não deve ser exibida
     E a tarefa "Estudar para a prova" não deve ser exibida

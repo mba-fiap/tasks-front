@@ -22,6 +22,7 @@
           <a-form-item name="email" has-feedback>
             <a-input
               v-model:value="formState.email"
+              data-cy="InputEmailLogin"
               :placeholder="t('login.form.email.placeholder')"
             >
               <template #prefix>
@@ -33,6 +34,7 @@
           <a-form-item name="password" has-feedback>
             <a-input-password
               v-model:value="formState.password"
+              data-cy="InputPasswordLogin"
               :placeholder="t('login.form.password.placeholder')"
             >
               <template #prefix>
@@ -42,7 +44,7 @@
           </a-form-item>
 
           <div class="w-full flex flex-col gap-2">
-            <a-button type="primary" html-type="submit">
+            <a-button type="primary" html-type="submit" data-cy="LoginButton">
               {{ t('login.form.submit') }}
             </a-button>
 

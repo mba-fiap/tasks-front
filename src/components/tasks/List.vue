@@ -3,6 +3,7 @@
     <div class="w-full flex flex-col gap-2">
       <div :class="$style['task-item']">
         <div
+          data-cy="FinishTaskButton"
           :class="[
             'w-6 h-6 p-2 flex justify-center items-center cursor-pointer',
             'rounded-full border-2 border-gray-600',

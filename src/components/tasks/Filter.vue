@@ -13,6 +13,7 @@
         <a-button
           class="flex justify-center items-center"
           type="primary"
+          data-cy="OpenTaskButton"
           @click="emit('openAddTaskModal')"
         >
           <template #icon>
@@ -30,6 +31,7 @@
             :icon="h(FilterOutlined)"
             type="dashed"
             class="flex justify-center items-center"
+            data-cy="OpenFilterButton"
             @click="handleOpenFilterModal"
           />
         </a-tooltip>

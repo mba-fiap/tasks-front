@@ -1,9 +1,16 @@
 <template>
   <a-modal
+    data-cy="TaskModal"
     width="350px"
     :open="open"
     :title="t('tasks.addTask.title')"
     :ok-text="t('tasks.addTask.footer.submit')"
+    :ok-button-props="{
+      'data-cy': 'AddTaskButton',
+    }"
+    :cancel-button-props="{
+      'data-cy': 'CancelTaskButton',
+    }"
     :cancel-text="t('tasks.addTask.footer.cancel')"
     @ok="handleCreateTask"
     @cancel="emit('dismiss')"
@@ -20,6 +27,7 @@
       <a-form-item name="title" has-feedback>
         <a-input
           v-model:value="formState.title"
+          data-cy="InputTitleTask"
           :placeholder="t('tasks.addTask.fields.title.placeholder')"
         />
       </a-form-item>
@@ -27,6 +35,7 @@
       <div class="w-full rounded-md border border-gray-300">
         <a-calendar
           v-model:value="formState.date"
+          data-cy="AddTaskCalendar"
           :fullscreen="false"
           :locale="calendarLocale"
           @panelChange="onPanelChange"

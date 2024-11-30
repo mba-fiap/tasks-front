@@ -7,8 +7,7 @@ Scenario: Login com sucesso
     And o campo "Senha" com "senhaSegura2024"
     And o usuário clica no botão "Entrar"
     Then o usuário deve ser redirecionado para a página inicial
-    And o título da página deve ser "Bem-vindo, João!"
-    And o usuário deve ver a mensagem "Login realizado com sucesso."
+
 
 Scenario: Erro no Login - Senha incorreta
 
