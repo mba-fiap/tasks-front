@@ -17,17 +17,17 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import Header from '@/components/Header.vue'
+import Header from '@/common/components/Header.vue'
 
-import EmptyState from '@/components/tasks/EmptyState.vue'
+import EmptyState from './components/EmptyState.vue'
 
-import AddTaskModal from '@/components/tasks/AddTaskModal.vue'
+import AddTaskModal from './components/AddTaskModal.vue'
 
-import Filter from '@/components/tasks/Filter.vue'
+import Filter from './components/Filter.vue'
 
-import List from '@/components/tasks/List.vue'
+import List from './components/List.vue'
 
-import Footer from '@/components/Footer.vue'
+import Footer from '@/common/components/Footer.vue'
 
 const addTaskModalOpen = ref(false)
 

@@ -1,0 +1,27 @@
+{
+  "errors": {
+    "messages": {
+      "INVALID_CREDENTIALS": {
+        "title": "Credenciais inválidas",
+        "message": "Usuário ou senha inválidos, tente novamente!"
+      },
+      "RESOURCE_NOT_FOUND": "Recurso não encontrado",
+      "USER_ALREADY_EXISTS": "Usuário já existe",
+      "UNAUTHORIZED": "Não autorizado",
+      "USER_NOT_FOUND": "Usuário não encontrado",
+      "VALIDATION_ERROR": {
+        "title": "Erro de validação",
+        "message": "Verifique: {fields}"
+      }
+    },
+    "fields": {
+      "minLength": "O campo {field} deve ter no mínimo {limit} caracteres",
+      "required": "O campo {field} é obrigatório",
+      "pattern": "O campo {field} não está no formato correto",
+      "maximum": "O campo {field} deve ser menor ou igual a {limit}",
+      "minimum": "O campo {field} deve ser maior ou igual a {limit}",
+      "format": "O campo {field} não está no formato correto",
+      "default": "Erro no campo {field}: {message}"
+    }
+  }
+}

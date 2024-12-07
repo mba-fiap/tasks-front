@@ -1,0 +1,27 @@
+{
+  "errors": {
+    "messages": {
+      "INVALID_CREDENTIALS": {
+        "title": "Invalid Credentials",
+        "message": "Invalid username or password, please try again!"
+      },
+      "RESOURCE_NOT_FOUND": "Resource not found",
+      "USER_ALREADY_EXISTS": "User already exists",
+      "UNAUTHORIZED": "Unauthorized",
+      "USER_NOT_FOUND": "User not found",
+      "VALIDATION_ERROR": {
+        "title": "Validation Error",
+        "message": "Check: {fields}"
+      }
+    },
+    "fields": {
+      "minLength": "The field {field} must have at least {limit} characters",
+      "required": "The field {field} is required",
+      "pattern": "The field {field} is not in the correct format",
+      "maximum": "The field {field} must be less than or equal to {limit}",
+      "minimum": "The field {field} must be greater than or equal to {limit}",
+      "format": "The field {field} is not in the correct format",
+      "default": "Error in the field {field}: {message}"
+    }
+  }
+}

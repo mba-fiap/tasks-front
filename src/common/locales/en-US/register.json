@@ -11,7 +11,8 @@
     },
     "password": {
       "placeholder": "Your password",
-      "required": "Please enter a password!"
+      "required": "Please enter a password!",
+      "minLength": "Password must be at least 6 characters long!"
     },
     "submit": "Sign Up",
     "login": "Back to login",

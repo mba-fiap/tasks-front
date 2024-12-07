@@ -22,7 +22,7 @@
           <a-form-item name="name" has-feedback>
             <a-input
               v-model:value="formState.name"
-              data-cy="InputNameRegister"
+              data-cy="registerFieldName"
               :placeholder="t('register.form.name.placeholder')"
             >
               <template #prefix>
@@ -34,7 +34,7 @@
           <a-form-item name="email" has-feedback>
             <a-input
               v-model:value="formState.email"
-              data-cy="InputEmailRegister"
+              data-cy="registerFieldEmail"
               :placeholder="t('register.form.email.placeholder')"
             >
               <template #prefix>
@@ -46,7 +46,7 @@
           <a-form-item name="password" has-feedback>
             <a-input-password
               v-model:value="formState.password"
-              data-cy="InputPasswordRegister"
+              data-cy="registerFieldPassword"
               :placeholder="t('register.form.password.placeholder')"
             >
               <template #prefix>
@@ -59,7 +59,7 @@
             <a-button
               type="primary"
               html-type="submit"
-              data-cy="RegisterButton"
+              data-cy="registerButtonSubmit"
             >
               {{ t('register.form.submit') }}
             </a-button>
@@ -117,7 +117,7 @@ import { useI18n } from 'vue-i18n'
 
 import { useRouter } from 'vue-router'
 
-import { validateEmail } from '@/utils/validate-email'
+import { validateEmail } from '@/common/utils/validate-email'
 
 import {
   IdcardOutlined,
@@ -126,9 +126,11 @@ import {
   ArrowLeftOutlined,
 } from '@ant-design/icons-vue'
 
-import { RouteNames } from '@/router/routes-names'
+import { RouteNames } from '@/common/router/routes-names'
 
 import type { Rule } from 'ant-design-vue/es/form'
+
+import { registerService } from './register.service'
 
 const { t } = useI18n()
 
@@ -158,10 +160,29 @@ const rules: Record<string, Rule[]> = {
         }),
     },
   ],
-  password: [{ required: true, message: t('register.form.password.required') }],
+  password: [
+    { required: true, message: t('register.form.password.required') },
+    {
+      validator: (_rule: Rule, password: string) => {
+        if (password && password.length >= 6) {
+          return Promise.resolve()
+        }
+
+        return Promise.reject(
+          new Error(t('register.form.password.minLength', { limit: 6 })),
+        )
+      },
+    },
+  ],
 }
 
-const onFinish = (values: any) => {
+const onFinish = async ({ name, email, password }: FormState) => {
+  await registerService.create({
+    name,
+    email,
+    password,
+  })
+
   router.push({ name: RouteNames.TASKS })
 }
 

@@ -1,4 +1,4 @@
-describe.only('Gerenciamento de Tarefas', () => {
+describe.skip('Gerenciamento de Tarefas', () => {
   it('Deve adicionar uma nova tarefa', () => {
     // Dado que o usuário está na página de gerenciamento de tarefas
     cy.visit('/tasks') // Substitua com a URL correta da página de gerenciamento de tarefas

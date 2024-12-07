@@ -11,7 +11,8 @@
     },
     "password": {
       "placeholder": "Sua senha",
-      "required": "Informe uma senha!"
+      "required": "Informe uma senha!",
+      "minLength": "A senha deve ter no mínimo 6 caracteres!"
     },
     "submit": "Cadastrar-se",
     "login": "Voltar para o login",

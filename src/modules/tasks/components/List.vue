@@ -94,7 +94,7 @@
 <script lang="ts" setup>
 import { CheckOutlined } from '@ant-design/icons-vue'
 
-import PageContainer from '@/components/PageContainer.vue'
+import PageContainer from '@/common/components/PageContainer.vue'
 </script>
 
 <style lang="scss" module>

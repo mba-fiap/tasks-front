@@ -49,7 +49,7 @@ import { useI18n } from 'vue-i18n'
 
 import { PlusCircleOutlined, FilterOutlined } from '@ant-design/icons-vue'
 
-import PageContainer from '@/components/PageContainer.vue'
+import PageContainer from '@/common/components/PageContainer.vue'
 
 import FilterModal from './FilterModal.vue'
 

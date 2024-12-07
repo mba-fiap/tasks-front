@@ -42,7 +42,7 @@
 import { RouterView } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
-import { Locales, STORAGE_KEY } from '@/locales/i18n'
+import { Locales, STORAGE_KEY } from '@/common/locales/i18n'
 
 const { locale } = useI18n()
 

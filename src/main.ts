@@ -2,10 +2,10 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import App from './common/App.vue'
-import i18n from './locales/i18n'
+import i18n from './common/locales/i18n'
 import './common/base.css'
 
-import router from './router'
+import router from './common/router'
 
 import Antd from 'ant-design-vue'
 

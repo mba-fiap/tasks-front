@@ -25,7 +25,7 @@ import { useI18n } from 'vue-i18n'
 
 import { PlusCircleOutlined } from '@ant-design/icons-vue'
 
-import PageContainer from '@/components/PageContainer.vue'
+import PageContainer from '@/common/components/PageContainer.vue'
 
 const emit = defineEmits(['openAddTaskModal'])
 

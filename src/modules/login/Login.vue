@@ -22,7 +22,7 @@
           <a-form-item name="email" has-feedback>
             <a-input
               v-model:value="formState.email"
-              data-cy="InputEmailLogin"
+              data-cy="loginFieldEmail"
               :placeholder="t('login.form.email.placeholder')"
             >
               <template #prefix>
@@ -34,7 +34,7 @@
           <a-form-item name="password" has-feedback>
             <a-input-password
               v-model:value="formState.password"
-              data-cy="InputPasswordLogin"
+              data-cy="loginFieldPassword"
               :placeholder="t('login.form.password.placeholder')"
             >
               <template #prefix>
@@ -44,7 +44,11 @@
           </a-form-item>
 
           <div class="w-full flex flex-col gap-2">
-            <a-button type="primary" html-type="submit" data-cy="LoginButton">
+            <a-button
+              type="primary"
+              html-type="submit"
+              data-cy="loginButtonSubmit"
+            >
               {{ t('login.form.submit') }}
             </a-button>
 
@@ -71,13 +75,15 @@ import { useI18n } from 'vue-i18n'
 
 import { useRouter } from 'vue-router'
 
-import { validateEmail } from '@/utils/validate-email'
+import { validateEmail } from '@/common/utils/validate-email'
 
 import { UserOutlined, LockOutlined } from '@ant-design/icons-vue'
 
 import type { Rule } from 'ant-design-vue/es/form'
 
-import { RouteNames } from '@/router/routes-names'
+import { RouteNames } from '@/common/router/routes-names'
+
+import { loginService } from './login.service'
 
 const { t } = useI18n()
 
@@ -107,7 +113,12 @@ const rules: Record<string, Rule[]> = {
   password: [{ required: true, message: t('login.form.password.required') }],
 }
 
-const onFinish = (values: any) => {
+const onFinish = async ({ email, password }: FormState) => {
+  await loginService.login({
+    email,
+    password,
+  })
+
   router.push({ name: RouteNames.TASKS })
 }
 

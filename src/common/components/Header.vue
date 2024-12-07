@@ -30,7 +30,7 @@ import { useI18n } from 'vue-i18n'
 
 import { useRouter } from 'vue-router'
 
-import { RouteNames } from '@/router/routes-names'
+import { RouteNames } from '@/common/router/routes-names'
 
 import { LogoutOutlined } from '@ant-design/icons-vue'
 
