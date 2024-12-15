@@ -38,22 +38,8 @@ class LoginService {
     }
   }
 
-  async logout(): Promise<void> {
-    try {
-      this.removeToken()
-    } catch (error) {
-      console.error('LoginService/logout Error:', error)
-
-      throw error
-    }
-  }
-
   private setToken(token: string): void {
     localStorage.setItem(AUTH_TOKEN_KEY, token)
-  }
-
-  private removeToken(): void {
-    localStorage.removeItem(AUTH_TOKEN_KEY)
   }
 }
 

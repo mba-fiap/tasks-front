@@ -2,14 +2,10 @@ import type { AxiosInstance } from 'axios'
 
 import { createApi } from '@/common/utils/api'
 
-enum TaskStatus {
-  ACTIVE = 'ACTIVE',
-  INACTIVE = 'INACTIVE',
-  PENDING = 'PENDING',
-}
+import { TaskStatus } from './tasks.enum'
 
 export interface Task {
-  id: number
+  id: string
   title: string
   date: Date
   status: TaskStatus
@@ -84,7 +80,7 @@ class TasksService {
 
   async complete(id: string): Promise<void> {
     try {
-      await this.api.put(`/tasks/${id}/complete`)
+      await this.api.post(`/tasks/${id}/complete`)
     } catch (error) {
       console.error('TasksService/complete Error:', error)
 

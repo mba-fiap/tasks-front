@@ -17,7 +17,7 @@
           name="login"
           autocomplete="off"
           class="w-full p-5 rounded-xl border border-pink-500"
-          @finish="onFinish"
+          @finish="handleLogin"
         >
           <a-form-item name="email" has-feedback>
             <a-input
@@ -113,7 +113,7 @@ const rules: Record<string, Rule[]> = {
   password: [{ required: true, message: t('login.form.password.required') }],
 }
 
-const onFinish = async ({ email, password }: FormState) => {
+const handleLogin = async ({ email, password }: FormState) => {
   await loginService.login({
     email,
     password,

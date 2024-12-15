@@ -14,7 +14,7 @@
           class="flex justify-center items-center"
           type="primary"
           data-cy="OpenTaskButton"
-          @click="emit('openAddTaskModal')"
+          @click="emit('open-add-task-modal')"
         >
           <template #icon>
             <PlusCircleOutlined />
@@ -38,7 +38,11 @@
       </div>
     </div>
 
-    <FilterModal :open="isFilterModalOpen" @dismiss="handleCloseFilterModal" />
+    <FilterModal
+      :open="isFilterModalOpen"
+      @dismiss="handleCloseFilterModal"
+      @apply-filter="payload => emit('apply-filter', payload)"
+    />
   </PageContainer>
 </template>
 
@@ -53,7 +57,12 @@ import PageContainer from '@/common/components/PageContainer.vue'
 
 import FilterModal from './FilterModal.vue'
 
-const emit = defineEmits(['openAddTaskModal'])
+import type { FilterTaskPayload } from '@/modules/tasks/tasks.service'
+
+const emit = defineEmits<{
+  (e: 'open-add-task-modal'): void
+  (e: 'apply-filter', filterPayload: FilterTaskPayload): void
+}>()
 
 const { t } = useI18n()
 

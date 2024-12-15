@@ -2,6 +2,8 @@ import type { AxiosInstance } from 'axios'
 
 import { createApi } from '@/common/utils/api'
 
+import { AUTH_TOKEN_KEY } from '@/common/utils/auth'
+
 export interface ProfileResponse {
   id: number
   name: string
@@ -25,6 +27,20 @@ class UsersService {
 
       throw error
     }
+  }
+
+  async logout(): Promise<void> {
+    try {
+      this.removeToken()
+    } catch (error) {
+      console.error('LoginService/logout Error:', error)
+
+      throw error
+    }
+  }
+
+  private removeToken(): void {
+    localStorage.removeItem(AUTH_TOKEN_KEY)
   }
 }
 

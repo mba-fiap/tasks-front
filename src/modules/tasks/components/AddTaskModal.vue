@@ -38,7 +38,6 @@
           data-cy="AddTaskCalendar"
           :fullscreen="false"
           :locale="calendarLocale"
-          @panelChange="onPanelChange"
         />
       </div>
     </a-form>
@@ -47,6 +46,8 @@
 
 <script lang="ts" setup>
 import { ref, type Ref, reactive, computed } from 'vue'
+
+import { useMutation, useQueryClient } from '@tanstack/vue-query'
 
 import type { FormInstance } from 'ant-design-vue'
 
@@ -58,6 +59,8 @@ import ptBR from 'ant-design-vue/es/date-picker/locale/pt_BR'
 import enUS from 'ant-design-vue/es/date-picker/locale/en_US'
 
 import type { Rule } from 'ant-design-vue/es/form'
+
+import { tasksService } from '@/modules/tasks/tasks.service'
 
 interface FormState {
   title: string
@@ -79,6 +82,8 @@ const localeMap: Record<SupportedLocales, typeof ptBR> = {
 
 const { t, locale } = useI18n()
 
+const queryClient = useQueryClient()
+
 const formRef: Ref<FormInstance | null> = ref(null)
 
 const formState = reactive<FormState>({
@@ -92,18 +97,26 @@ const rules: Record<string, Rule[]> = {
   ],
 }
 
-const onPanelChange = (value: Dayjs, mode: string) => {
-  console.log(value, mode)
-}
+const createTaskMutation = useMutation({
+  mutationFn: (newTask: any) => tasksService.create(newTask),
+  onSuccess: () => {
+    queryClient.invalidateQueries(['tasks'])
+  },
+  onError: error => {
+    console.error('Error creating task:', error)
+  },
+})
 
 const handleCreateTask = async () => {
   if (formRef.value) {
     try {
       await formRef.value.validate()
 
-      console.log('Formulário validado com sucesso!')
+      await createTaskMutation.mutateAsync(formState)
+
+      emit('dismiss')
     } catch (error) {
-      console.error('Erro de validação:', error)
+      console.error('Validation error:', error)
     }
   }
 }

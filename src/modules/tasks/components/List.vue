@@ -1,89 +1,46 @@
 <template>
   <PageContainer>
     <div class="w-full flex flex-col gap-2">
-      <div :class="$style['task-item']">
+      <div v-for="task in tasks" :key="task.id" :class="$style['task-item']">
         <div
-          data-cy="FinishTaskButton"
+          data-cy="tasksListCompleteTask"
           :class="[
-            'w-6 h-6 p-2 flex justify-center items-center cursor-pointer',
+            'w-6 h-6 p-2 flex justify-center items-center',
             'rounded-full border-2 border-gray-600',
             {
-              'hover:bg-gray-600': true,
+              'bg-gray-600': task.completionDate,
+              'cursor-pointer hover:bg-gray-600': !task.completionDate,
             },
           ]"
-        />
-
-        <div class="w-full flex flex-col flex-1 gap-1">
-          <a-typography-title :level="5" class="!mb-0 !font-normal">
-            Dentista
-          </a-typography-title>
-
-          <a-typography-paragraph class="!mb-0 text-sm">
-            Conclusão em: 14/09/2024
-          </a-typography-paragraph>
-        </div>
-      </div>
-
-      <div :class="$style['task-item']">
-        <div
-          :class="[
-            'w-6 h-6 p-2 flex justify-center items-center cursor-pointer',
-            'rounded-full border-2 border-gray-600',
-            {
-              'hover:bg-gray-600': true,
-            },
-          ]"
-        />
-
-        <div class="w-full flex flex-col flex-1 gap-1">
-          <a-typography-title :level="5" class="!mb-0 !font-normal">
-            Tarefa 1
-          </a-typography-title>
-
-          <a-typography-paragraph class="!mb-0 text-sm">
-            Conclusão em: 14/09/2024
-          </a-typography-paragraph>
-        </div>
-      </div>
-
-      <div :class="$style['task-item']">
-        <div
-          :class="[
-            'w-6 h-6 p-2 flex justify-center items-center cursor-pointer',
-            'rounded-full border-2 border-gray-600 bg-gray-600',
-          ]"
+          @click="handleCompleteTask(task.id)"
         >
-          <CheckOutlined :style="{ fontSize: '14px' }" class="text-white" />
+          <CheckOutlined
+            v-if="task.completionDate"
+            :style="{ fontSize: '14px' }"
+            class="text-white"
+          />
         </div>
 
         <div class="w-full flex flex-col flex-1 gap-1">
-          <a-typography-title :level="5" class="!mb-0 !font-normal" delete>
-            Tarefa 2
+          <a-typography-title
+            :level="5"
+            class="!mb-0 !font-normal"
+            :delete="!!task.completionDate"
+          >
+            {{ task.title }}
           </a-typography-title>
 
-          <a-typography-paragraph class="!mb-0 text-sm" delete>
-            Concluído em: 18/10/2021
+          <a-typography-paragraph
+            v-if="!task.completionDate"
+            class="!mb-0 text-sm"
+          >
+            {{ t('tasks.list.completedAt') }}:
+            {{ dayjs(task.date).format('DD/MM/YYYY') }}
           </a-typography-paragraph>
-        </div>
-      </div>
 
-      <div :class="$style['task-item']">
-        <div
-          :class="[
-            'w-6 h-6 p-2 flex justify-center items-center cursor-pointer',
-            'rounded-full border-2 border-gray-600 bg-gray-600',
-          ]"
-        >
-          <CheckOutlined :style="{ fontSize: '14px' }" class="text-white" />
-        </div>
-
-        <div class="w-full flex flex-col flex-1 gap-1">
-          <a-typography-title :level="5" class="!mb-0 !font-normal" delete>
-            Tarefa 3
-          </a-typography-title>
-
-          <a-typography-paragraph class="!mb-0 text-sm" delete>
-            Concluído em: 18/10/2021
+          <a-typography-paragraph v-else class="!mb-0 text-sm" delete>
+            {{ t('tasks.list.completed') }}:
+            {{ dayjs(task.completionDate).format('DD/MM/YYYY') }}
           </a-typography-paragraph>
         </div>
       </div>
@@ -92,9 +49,45 @@
 </template>
 
 <script lang="ts" setup>
+import dayjs from 'dayjs'
+
+import { useI18n } from 'vue-i18n'
+
+import { useQueryClient, useMutation } from '@tanstack/vue-query'
+
 import { CheckOutlined } from '@ant-design/icons-vue'
 
 import PageContainer from '@/common/components/PageContainer.vue'
+
+import type { Task } from '@/modules/tasks/tasks.service'
+
+import { tasksService } from '@/modules/tasks/tasks.service'
+
+defineProps<{
+  tasks: Task[]
+}>()
+
+const { t } = useI18n()
+
+const queryClient = useQueryClient()
+
+const completeTaskMutation = useMutation({
+  mutationFn: (taskId: string) => tasksService.complete(taskId),
+  onSuccess: () => {
+    queryClient.invalidateQueries(['tasks'])
+  },
+  onError: error => {
+    console.error('Error completing task:', error)
+  },
+})
+
+const handleCompleteTask = async (id: string) => {
+  try {
+    await completeTaskMutation.mutateAsync(id)
+  } catch (error) {
+    console.error('Error completing task:', error)
+  }
+}
 </script>
 
 <style lang="scss" module>

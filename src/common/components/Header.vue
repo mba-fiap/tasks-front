@@ -36,6 +36,8 @@ import { LogoutOutlined } from '@ant-design/icons-vue'
 
 import PageContainer from './PageContainer.vue'
 
+import { usersService } from '@/common/services/user.service'
+
 const userName = ref<string>('Lucas Cordeiro')
 
 const { t } = useI18n()
@@ -43,6 +45,8 @@ const { t } = useI18n()
 const router = useRouter()
 
 const handleLogout = () => {
+  usersService.logout()
+
   router.push({ name: RouteNames.LOGIN })
 }
 </script>

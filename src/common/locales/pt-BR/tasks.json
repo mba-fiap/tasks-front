@@ -3,6 +3,9 @@
     "description": "Você ainda não possui tarefas cadastradas!",
     "buttonCreate": "Adicionar uma tarefa"
   },
+  "emptySearchResults": {
+    "description": "Nenhuma tarefa encontrada com os filtros aplicados"
+  },
   "filter": {
     "title": "Tarefas",
     "buttonTooltip": "Filtrar tarefas",
@@ -11,18 +14,21 @@
       "title": "Filtrar Tarefa",
       "fields": {
         "title": {
-          "placeholder": "Pesquise pelo título da tarefa",
-          "required": "O título da tarefa é obrigatório"
+          "placeholder": "Pesquise pelo título da tarefa"
         },
         "status": {
-          "completed": "Apenas tarefas concluídas",
-          "pending": "Apenas tarefas em aberto"
+          "all": "Todas as tarefas",
+          "active": "Apenas tarefas em aberto",
+          "completed": "Apenas tarefas concluídas"
         }
       },
       "footer": {
         "cancel": "Cancelar",
         "submit": "Filtrar"
       }
+    },
+    "alerts": {
+      "error": "Ocorreu um erro ao filtrar as tarefas"
     }
   },
   "addTask": {
@@ -38,5 +44,9 @@
       "cancel": "Cancelar",
       "submit": "Cadastrar"
     }
+  },
+  "list": {
+    "completedAt": "Conclusão em",
+    "completed": "Concluído em"
   }
 }

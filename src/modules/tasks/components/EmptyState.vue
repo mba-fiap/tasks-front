@@ -8,7 +8,7 @@
       <a-button
         type="primary"
         class="flex justify-center items-center"
-        @click="emit('openAddTaskModal')"
+        @click="emit('open-add-task-modal')"
       >
         <template #icon>
           <PlusCircleOutlined />
@@ -27,7 +27,7 @@ import { PlusCircleOutlined } from '@ant-design/icons-vue'
 
 import PageContainer from '@/common/components/PageContainer.vue'
 
-const emit = defineEmits(['openAddTaskModal'])
+const emit = defineEmits(['open-add-task-modal'])
 
 const { t } = useI18n()
 </script>

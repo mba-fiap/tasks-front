@@ -17,7 +17,7 @@
           name="register"
           autocomplete="off"
           class="w-full p-5 rounded-xl border border-pink-500"
-          @finish="onFinish"
+          @finish="handleRegister"
         >
           <a-form-item name="name" has-feedback>
             <a-input
@@ -176,7 +176,7 @@ const rules: Record<string, Rule[]> = {
   ],
 }
 
-const onFinish = async ({ name, email, password }: FormState) => {
+const handleRegister = async ({ name, email, password }: FormState) => {
   await registerService.create({
     name,
     email,

@@ -29,30 +29,26 @@
         />
       </a-form-item>
 
-      <div class="w-full rounded-md border border-gray-300 mb-4">
-        <a-calendar
-          v-model:value="formState.date"
-          data-cy="AddFilterCalendar"
-          :fullscreen="false"
-          :locale="calendarLocale"
-          @panelChange="onPanelChange"
-        />
-      </div>
+      <a-range-picker
+        v-model:value="formState.date"
+        :locale="calendarLocale"
+        class="w-full mb-4"
+      />
 
       <div class="w-full flex items-center gap-4 mb-4">
-        <a-switch v-model:checked="formState.status" size="small" />
+        <a-select ref="select" v-model:value="formState.status" class="w-full">
+          <a-select-option :value="TaskStatus.ALL">
+            {{ t('tasks.filter.modal.fields.status.all') }}
+          </a-select-option>
 
-        <a-typography-paragraph
-          v-if="formState.status"
-          :content="t('tasks.filter.modal.fields.status.completed')"
-          class="!mb-0"
-        />
+          <a-select-option :value="TaskStatus.ACTIVE">
+            {{ t('tasks.filter.modal.fields.status.active') }}
+          </a-select-option>
 
-        <a-typography-paragraph
-          v-else
-          :content="t('tasks.filter.modal.fields.status.pending')"
-          class="!mb-0"
-        />
+          <a-select-option :value="TaskStatus.INACTIVE">
+            {{ t('tasks.filter.modal.fields.status.completed') }}
+          </a-select-option>
+        </a-select>
       </div>
     </a-form>
   </a-modal>
@@ -72,15 +68,22 @@ import enUS from 'ant-design-vue/es/date-picker/locale/en_US'
 
 import type { Rule } from 'ant-design-vue/es/form'
 
+import { TaskStatus } from '@/modules/tasks/tasks.enum'
+
+import type { FilterTaskPayload } from '@/modules/tasks/tasks.service'
+
 interface FormState {
   title: string
-  date: Dayjs
-  status: 'todo' | 'done'
+  date: Dayjs[]
+  status: TaskStatus
 }
 
 type SupportedLocales = 'pt-BR' | 'en-US'
 
-const emit = defineEmits(['dismiss'])
+const emit = defineEmits<{
+  (e: 'dismiss'): void
+  (e: 'apply-filter', filterPayload: FilterTaskPayload): void
+}>()
 
 defineProps({
   open: Boolean,
@@ -97,30 +100,42 @@ const formRef: Ref<FormInstance | null> = ref(null)
 
 const formState = reactive<FormState>({
   title: '',
-  date: dayjs(),
-  status: 'todo',
+  date: [dayjs(), dayjs().add(-7, 'd')],
+  status: TaskStatus.ALL,
 })
 
 const rules: Record<string, Rule[]> = {
-  title: [
-    { required: true, message: t('tasks.filter.modal.fields.title.required') },
-  ],
   status: [{ required: true }],
 }
 
-const onPanelChange = (value: Dayjs, mode: string) => {
-  console.log(value, mode)
-}
-
 const handleFilterTasks = async () => {
-  if (formRef.value) {
-    try {
-      await formRef.value.validate()
+  if (!formRef.value) return
 
-      console.log('Formulário validado com sucesso!')
-    } catch (error) {
-      console.error('Erro de validação:', error)
+  try {
+    await formRef.value.validate()
+
+    const { title = '', date = [], status } = formState
+
+    const start =
+      Array.isArray(date) && date[0]
+        ? date[0].startOf('day').toDate()
+        : undefined
+
+    const end =
+      Array.isArray(date) && date[1] ? date[1].endOf('day').toDate() : undefined
+
+    const filterPayload: FilterTaskPayload = {
+      title: title || undefined,
+      start,
+      end,
+      status: status === TaskStatus.ALL ? undefined : status,
     }
+
+    emit('apply-filter', filterPayload)
+
+    emit('dismiss')
+  } catch (error) {
+    console.error('Validation error:', error)
   }
 }
 

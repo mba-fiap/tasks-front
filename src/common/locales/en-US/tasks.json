@@ -3,6 +3,9 @@
     "description": "You do not have any registered tasks yet.!",
     "buttonCreate": "Add a task"
   },
+  "emptySearchResults": {
+    "description": "No tasks found with filters applied"
+  },
   "filter": {
     "title": "Tasks",
     "buttonTooltip": "Filter tasks",
@@ -11,18 +14,21 @@
       "title": "Filter Task",
       "fields": {
         "title": {
-          "placeholder": "Search by task title",
-          "required": "Task title is required"
+          "placeholder": "Search by task title"
         },
         "status": {
-          "completed": "Only completed tasks",
-          "pending": "Open tasks only"
+          "all": "All tasks",
+          "active": "Open tasks only",
+          "completed": "Only completed tasks"
         }
       },
       "footer": {
         "cancel": "Cancel",
         "submit": "Filter"
       }
+    },
+    "alerts": {
+      "error": "Fixed a bug when filtering tasks"
     }
   },
   "addTask": {
@@ -38,5 +44,9 @@
       "cancel": "Cancel",
       "submit": "Register"
     }
+  },
+  "list": {
+    "completedAt": "Conclusion in",
+    "completed": "Completed on"
   }
 }
