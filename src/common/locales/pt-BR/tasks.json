@@ -8,7 +8,8 @@
   },
   "filter": {
     "title": "Tarefas",
-    "buttonTooltip": "Filtrar tarefas",
+    "buttonFilterTooltip": "Filtrar tarefas",
+    "buttonClearTooltip": "Limpar filtros",
     "addTask": "Adicionar uma tarefa",
     "modal": {
       "title": "Filtrar Tarefa",
@@ -26,6 +27,20 @@
         "cancel": "Cancelar",
         "submit": "Filtrar"
       }
+    },
+    "searchResults": {
+      "title": "Itens para sua busca",
+      "filters": {
+        "title": "Título",
+        "period": "Período",
+        "status": {
+          "title": "Status",
+          "all": "Todas as tarefas",
+          "active": "Tarefas abertas",
+          "inactive": "Tarefas fechadas"
+        }
+      },
+      "until": "até"
     },
     "alerts": {
       "error": "Ocorreu um erro ao filtrar as tarefas"

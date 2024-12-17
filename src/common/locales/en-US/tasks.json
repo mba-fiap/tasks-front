@@ -8,7 +8,8 @@
   },
   "filter": {
     "title": "Tasks",
-    "buttonTooltip": "Filter tasks",
+    "buttonFilterTooltip": "Filter tasks",
+    "buttonClearTooltip": "Clear filters",
     "addTask": "Add a task",
     "modal": {
       "title": "Filter Task",
@@ -26,6 +27,20 @@
         "cancel": "Cancel",
         "submit": "Filter"
       }
+    },
+    "searchResults": {
+      "title": "Items for your search",
+      "filters": {
+        "title": "Title",
+        "period": "Period",
+        "status": {
+          "title": "Status",
+          "all": "All tasks",
+          "active": "Open tasks",
+          "inactive": "Closed tasks"
+        }
+      },
+      "until": "until"
     },
     "alerts": {
       "error": "Fixed a bug when filtering tasks"
