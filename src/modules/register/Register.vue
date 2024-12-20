@@ -112,28 +112,24 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from 'vue'
-
-import { useI18n } from 'vue-i18n'
-
-import { useRouter } from 'vue-router'
-
-import { validateEmail } from '@/common/utils/validate-email'
-
 import {
   IdcardOutlined,
   UserOutlined,
   LockOutlined,
   ArrowLeftOutlined,
 } from '@ant-design/icons-vue'
+import type { Rule } from 'ant-design-vue/es/form'
+import { reactive, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 
 import { RouteNames } from '@/common/router/routes-names'
 
-import type { Rule } from 'ant-design-vue/es/form'
-
-import { registerService } from './register.service'
+import { validateEmail } from '@/common/utils/validate-email'
 
 import { loginService } from '@/modules/login/login.service'
+
+import { registerService } from './register.service'
 
 const { t } = useI18n()
 

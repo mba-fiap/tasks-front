@@ -70,19 +70,15 @@
 </template>
 
 <script lang="ts" setup>
+import { UserOutlined, LockOutlined } from '@ant-design/icons-vue'
+import type { Rule } from 'ant-design-vue/es/form'
 import { reactive, ref } from 'vue'
-
 import { useI18n } from 'vue-i18n'
-
 import { useRouter } from 'vue-router'
 
-import { validateEmail } from '@/common/utils/validate-email'
-
-import { UserOutlined, LockOutlined } from '@ant-design/icons-vue'
-
-import type { Rule } from 'ant-design-vue/es/form'
-
 import { RouteNames } from '@/common/router/routes-names'
+
+import { validateEmail } from '@/common/utils/validate-email'
 
 import { loginService } from './login.service'
 

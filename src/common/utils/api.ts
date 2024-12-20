@@ -1,8 +1,7 @@
+import { notification } from 'ant-design-vue'
 import axios from 'axios'
 
 import i18n from '@/common/locales/i18n'
-
-import { notification } from 'ant-design-vue'
 
 import { AUTH_TOKEN_KEY } from '@/common/utils/auth'
 
@@ -48,7 +47,7 @@ export const createApi = (baseURL: string) => {
       if (error.response) {
         const { data } = error.response
 
-        let errorMessage = 'An unexpected error occurred'
+        const errorMessage = 'An unexpected error occurred'
 
         const apiErrorMessage = data?.message
 

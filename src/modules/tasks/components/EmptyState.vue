@@ -22,9 +22,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useI18n } from 'vue-i18n'
-
 import { PlusCircleOutlined } from '@ant-design/icons-vue'
+import { useI18n } from 'vue-i18n'
 
 import PageContainer from '@/common/components/PageContainer.vue'
 

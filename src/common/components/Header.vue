@@ -27,21 +27,17 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, h, watchEffect } from 'vue'
-
-import { useI18n } from 'vue-i18n'
-
-import { useRouter } from 'vue-router'
-
+import { LogoutOutlined } from '@ant-design/icons-vue'
 import { useQuery } from '@tanstack/vue-query'
+import { ref, h, watchEffect } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 
 import { RouteNames } from '@/common/router/routes-names'
 
-import { LogoutOutlined } from '@ant-design/icons-vue'
+import { usersService } from '@/common/services/user.service'
 
 import PageContainer from './PageContainer.vue'
-
-import { usersService } from '@/common/services/user.service'
 
 const { data, isLoading } = useQuery({
   queryKey: ['user'],

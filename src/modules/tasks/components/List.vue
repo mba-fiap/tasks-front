@@ -49,18 +49,14 @@
 </template>
 
 <script lang="ts" setup>
-import dayjs from 'dayjs'
-
-import { useI18n } from 'vue-i18n'
-
-import { useQueryClient, useMutation } from '@tanstack/vue-query'
-
 import { CheckOutlined } from '@ant-design/icons-vue'
+import { useQueryClient, useMutation } from '@tanstack/vue-query'
+import dayjs from 'dayjs'
+import { useI18n } from 'vue-i18n'
 
 import PageContainer from '@/common/components/PageContainer.vue'
 
 import type { Task } from '@/modules/tasks/tasks.service'
-
 import { tasksService } from '@/modules/tasks/tasks.service'
 
 defineProps<{

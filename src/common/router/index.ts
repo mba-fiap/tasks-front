@@ -1,10 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import { RouteNames } from './routes-names'
-
-import { auth } from './middleware/auth'
-
 import type { Middleware } from './middleware'
+import { auth } from './middleware/auth'
+import { RouteNames } from './routes-names'
 
 declare module 'vue-router' {
   interface RouteMeta {

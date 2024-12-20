@@ -87,25 +87,21 @@
 </template>
 
 <script lang="ts" setup>
-import { h, ref, computed } from 'vue'
-
-import { useI18n } from 'vue-i18n'
-
-import dayjs from 'dayjs'
-
 import {
   PlusCircleOutlined,
   FilterOutlined,
   ReloadOutlined,
 } from '@ant-design/icons-vue'
+import dayjs from 'dayjs'
+import { h, ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 import PageContainer from '@/common/components/PageContainer.vue'
 
-import FilterModal from './FilterModal.vue'
-
 import { TaskStatus } from '@/modules/tasks/tasks.enum'
-
 import type { FilterTaskPayload } from '@/modules/tasks/tasks.service'
+
+import FilterModal from './FilterModal.vue'
 
 const emit = defineEmits<{
   (e: 'open-add-task-modal'): void

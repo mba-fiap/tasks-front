@@ -1,7 +1,6 @@
 import type { AxiosInstance } from 'axios'
 
 import { createApi } from '@/common/utils/api'
-
 import { AUTH_TOKEN_KEY } from '@/common/utils/auth'
 
 export interface ProfileResponse {

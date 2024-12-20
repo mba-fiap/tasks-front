@@ -41,20 +41,14 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, type Ref, reactive, computed } from 'vue'
-
 import { useMutation, useQueryClient } from '@tanstack/vue-query'
-
 import type { FormInstance } from 'ant-design-vue'
-
-import dayjs, { Dayjs } from 'dayjs'
-
-import { useI18n } from 'vue-i18n'
-
-import ptBR from 'ant-design-vue/es/date-picker/locale/pt_BR'
 import enUS from 'ant-design-vue/es/date-picker/locale/en_US'
-
+import ptBR from 'ant-design-vue/es/date-picker/locale/pt_BR'
 import type { Rule } from 'ant-design-vue/es/form'
+import dayjs, { Dayjs } from 'dayjs'
+import { ref, type Ref, reactive, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 import { tasksService } from '@/modules/tasks/tasks.service'
 

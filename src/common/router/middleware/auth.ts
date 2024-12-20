@@ -2,11 +2,11 @@ import dayjs from 'dayjs'
 
 import { RouteNames } from '@/common/router/routes-names'
 
-import type { Middleware } from './index'
+import { usersService } from '@/common/services/user.service'
 
 import { AUTH_TOKEN_KEY } from '@/common/utils/auth'
 
-import { usersService } from '@/common/services/user.service'
+import type { Middleware } from './index'
 
 export const auth: Middleware = (_, __, next) => {
   const token = localStorage.getItem(AUTH_TOKEN_KEY)
