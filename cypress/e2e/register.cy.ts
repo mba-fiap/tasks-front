@@ -48,12 +48,19 @@ describe('Register Page', () => {
 
     cy.intercept('POST', '/users', {
       statusCode: 201,
-      body: { message: 'Success' },
+      fixture: 'register.json',
     }).as('registerRequest')
+
+    cy.intercept('POST', '/sessions', {
+      statusCode: 200,
+      fixture: 'login.json',
+    }).as('loginRequest')
 
     cy.get('[data-cy="registerButtonSubmit"]').click()
 
     cy.wait('@registerRequest').its('response.statusCode').should('eq', 201)
+
+    cy.wait('@loginRequest').its('response.statusCode').should('eq', 200)
 
     cy.url().should('include', '/tasks')
   })

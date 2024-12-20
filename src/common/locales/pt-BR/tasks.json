@@ -12,7 +12,7 @@
     "buttonClearTooltip": "Limpar filtros",
     "addTask": "Adicionar uma tarefa",
     "modal": {
-      "title": "Filtrar Tarefa",
+      "title": "Filtrar Tarefas",
       "fields": {
         "title": {
           "placeholder": "Pesquise pelo título da tarefa"

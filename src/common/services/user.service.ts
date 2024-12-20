@@ -19,7 +19,7 @@ class UsersService {
 
   async profile(): Promise<ProfileResponse> {
     try {
-      const { data } = await this.api.post<ProfileResponse>('/users')
+      const { data } = await this.api.get<ProfileResponse>('/users')
 
       return data
     } catch (error) {

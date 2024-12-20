@@ -59,6 +59,7 @@
             <a-button
               type="primary"
               html-type="submit"
+              :loading="isLoading"
               data-cy="registerButtonSubmit"
             >
               {{ t('register.form.submit') }}
@@ -111,7 +112,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, h } from 'vue'
+import { reactive, ref } from 'vue'
 
 import { useI18n } from 'vue-i18n'
 
@@ -132,9 +133,13 @@ import type { Rule } from 'ant-design-vue/es/form'
 
 import { registerService } from './register.service'
 
+import { loginService } from '@/modules/login/login.service'
+
 const { t } = useI18n()
 
 const router = useRouter()
+
+const isLoading = ref(false)
 
 interface FormState {
   name: string
@@ -177,13 +182,26 @@ const rules: Record<string, Rule[]> = {
 }
 
 const handleRegister = async ({ name, email, password }: FormState) => {
-  await registerService.create({
-    name,
-    email,
-    password,
-  })
+  isLoading.value = true
 
-  router.push({ name: RouteNames.TASKS })
+  try {
+    await registerService.create({
+      name,
+      email,
+      password,
+    })
+
+    await loginService.login({
+      email,
+      password,
+    })
+
+    router.push({ name: RouteNames.TASKS })
+  } catch (error) {
+    console.error(error)
+  } finally {
+    isLoading.value = false
+  }
 }
 
 const handleGoToLogin = () => {

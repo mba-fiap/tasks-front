@@ -1,0 +1,10 @@
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiTUVNQkVSIiwic3ViIjoiN2VhMDEyMDQtM2U5MS00ZDg5LWI2YTMtZjU5NDlkZTcxMDQ2IiwiaWF0IjoxNzM0NjYxMzEyLCJleHAiOjE3MzQ3NDc3MTJ9.vM0IxkyDeIKhvjAvXjHNP5ZHYEcHzLhJ7ndhBWMUe4M",
+  "user": {
+    "id": "7ea01204-3e91-4d89-b6a3-f5949de71046",
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "role": "MEMBER",
+    "created_at": "2024-12-09T02:27:04.167Z"
+  }
+}

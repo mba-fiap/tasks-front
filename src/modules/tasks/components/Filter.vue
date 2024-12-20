@@ -13,7 +13,7 @@
         <a-button
           class="flex justify-center items-center"
           type="primary"
-          data-cy="OpenTaskButton"
+          data-cy="openModalAddTask"
           @click="emit('open-add-task-modal')"
         >
           <template #icon>
@@ -31,7 +31,7 @@
             :icon="h(FilterOutlined)"
             type="dashed"
             class="flex justify-center items-center"
-            data-cy="OpenFilterButton"
+            data-cy="openFilterButton"
             @click="handleOpenFilterModal"
           />
         </a-tooltip>
@@ -44,7 +44,7 @@
           <a-button
             :icon="h(ReloadOutlined)"
             class="flex justify-center items-center"
-            data-cy="ClearFilterButton"
+            data-cy="clearFilterButton"
             @click="handleClearFilter"
           />
         </a-tooltip>

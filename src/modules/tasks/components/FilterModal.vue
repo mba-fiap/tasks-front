@@ -4,10 +4,7 @@
     :open="open"
     :title="t('tasks.filter.modal.title')"
     :ok-button-props="{
-      'data-cy': 'FilterTaskButton',
-    }"
-    :cancel-button-props="{
-      'data-cy': 'CancelTaskButton',
+      'data-cy': 'filterTaskBtn',
     }"
     :ok-text="t('tasks.filter.modal.footer.submit')"
     :cancel-text="t('tasks.filter.modal.footer.cancel')"
@@ -24,7 +21,7 @@
       <a-form-item name="title" has-feedback>
         <a-input
           v-model:value="formState.title"
-          data-cy="InputFilterTitle"
+          data-cy="filterModalInputTitle"
           :placeholder="t('tasks.filter.modal.fields.title.placeholder')"
         />
       </a-form-item>

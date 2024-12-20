@@ -12,7 +12,7 @@
     "buttonClearTooltip": "Clear filters",
     "addTask": "Add a task",
     "modal": {
-      "title": "Filter Task",
+      "title": "Filter Tasks",
       "fields": {
         "title": {
           "placeholder": "Search by task title"

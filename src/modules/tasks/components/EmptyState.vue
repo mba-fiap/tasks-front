@@ -8,6 +8,7 @@
       <a-button
         type="primary"
         class="flex justify-center items-center"
+        data-cy="emptyStateAddTaskButton"
         @click="emit('open-add-task-modal')"
       >
         <template #icon>

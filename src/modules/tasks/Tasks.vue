@@ -28,19 +28,31 @@
 
 <script lang="ts" setup>
 import { computed, ref, watchEffect } from 'vue'
+
 import { useI18n } from 'vue-i18n'
+
 import { useMutation, useQuery } from '@tanstack/vue-query'
+
 import { type Task, tasksService } from './tasks.service'
 
 import Header from '@/common/components/Header.vue'
+
 import EmptyState from './components/EmptyState.vue'
+
 import EmptySearchResults from './components/EmptySearchResults.vue'
+
 import AddTaskModal from './components/AddTaskModal.vue'
+
 import Filter from './components/Filter.vue'
+
 import ListLoader from './components/ListLoader.vue'
+
 import List from './components/List.vue'
+
 import Footer from '@/common/components/Footer.vue'
+
 import { notification } from 'ant-design-vue'
+
 import type { FilterTaskPayload } from '@/modules/tasks/tasks.service'
 
 const { t } = useI18n()

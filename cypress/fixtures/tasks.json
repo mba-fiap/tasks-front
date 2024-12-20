@@ -1,0 +1,20 @@
+[
+  {
+    "id": "3e8ad7ed-0026-4bbf-9b57-acaec82a0fde",
+    "title": "Task 1",
+    "date": "2023-10-01",
+    "completionDate": null
+  },
+  {
+    "id": "fc765d49-b085-4e07-b12a-ed3100ca007b",
+    "title": "Task 2",
+    "date": "2023-10-02",
+    "completionDate": null
+  },
+  {
+    "id": "e7820ac9-a363-45be-9019-07ba07e8a620",
+    "title": "New Task",
+    "date": "2023-10-02",
+    "completionDate": null
+  }
+]

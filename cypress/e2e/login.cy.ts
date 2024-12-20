@@ -34,7 +34,7 @@ describe('Login Page', () => {
 
     cy.intercept('POST', '/sessions', {
       statusCode: 200,
-      body: { message: 'Success' },
+      fixture: 'login.json',
     }).as('loginRequest')
 
     cy.get('[data-cy="loginButtonSubmit"]').click()
